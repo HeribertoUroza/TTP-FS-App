@@ -20,3 +20,13 @@ CREATE TABLE transactions (
     date TIMESTAMP DEFAULT NOW(),
     user_id INT REFERENCES users(id) 
 );
+
+CREATE TABLE portfolio (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR NOT NULL,
+    ticker VARCHAR NOT NULL,
+    current_value INT,
+    quantity INT,
+    performance VARCHAR,
+    user_id INT REFERENCES users(id)
+);
