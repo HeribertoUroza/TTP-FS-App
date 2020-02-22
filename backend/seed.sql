@@ -37,4 +37,17 @@ VALUES
     ('f_name l_name', 'fl@email.com', 5000),
     ('full_name', 'full_N@email.com', 3456),
     ('John Smith', 'jsmith@email.com', 9879),
-    ('Jane Doe', 'jdoe@email.com', 6899)
+    ('Jane Doe', 'jdoe@email.com', 6899);
+
+INSERT INTO transactions 
+    (name, ticker, amount, quantity, status, user_id)
+VALUES   
+    ('transaction1', 'tran1', 2.99, 5, 'BOUGHT', 1),
+    ('transaction2', 'tran1', 3.99, 5, 'SOLD', 1),
+    ('transaction1', 'tran1', 5.99, 5, 'BOUGHT', 2),
+    ('transaction2', 'tran1', 6.99, 5, 'SOLD', 2),
+    ('transaction3', 'tran1', 7.99, 5, 'BOUGHT', 2),
+    ('transaction1', 'tran1', 11.99, 5, 'BOUGHT', 3),
+    ('transaction2', 'tran1', 632.99, 5, 'BOUGHT', 3),
+    ('transaction1', 'tran1', 23.99, 5, 'SOLD', 4),
+    ('transaction2', 'tran1', 209.99, 5, 'BOUGHT', 4);
