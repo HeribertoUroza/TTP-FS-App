@@ -51,3 +51,16 @@ VALUES
     ('transaction2', 'tran1', 632.99, 5, 'BOUGHT', 3),
     ('transaction1', 'tran1', 23.99, 5, 'SOLD', 4),
     ('transaction2', 'tran1', 209.99, 5, 'BOUGHT', 4);
+
+INSERT INTO portfolio 
+    (name, ticker, current_value, quantity, performance, user_id)
+VALUES
+    ('name1', 'nme1', 22.99, 5, 'GOOD', 1),
+    ('transaction2', 'tran2', 2.99, 5, 'EQUAL', 1),
+    ('transaction3', 'tran3', 0.99, 5, 'BAD', 1),
+    ('name1', 'nme1', 22.99, 5, 'GOOD', 2),
+    ('transaction2', 'tran2', 2.99, 5, 'EQUAL', 2),
+    ('transaction1', 'tran1', 0.99, 5, 'BAD', 3),
+    ('name1', 'nme1', 22.99, 5, 'GOOD', 4),
+    ('transaction2', 'tran2', 2.99, 5, 'EQUAL', 4),
+    ('transaction1', 'tran1', 0.99, 5, 'BAD', 4);
