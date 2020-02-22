@@ -30,3 +30,11 @@ CREATE TABLE portfolio (
     performance VARCHAR,
     user_id INT REFERENCES users(id)
 );
+
+INSERT INTO users 
+    (full_name, email, balance)
+VALUES
+    ('f_name l_name', 'fl@email.com', 5000),
+    ('full_name', 'full_N@email.com', 3456),
+    ('John Smith', 'jsmith@email.com', 9879),
+    ('Jane Doe', 'jdoe@email.com', 6899)
