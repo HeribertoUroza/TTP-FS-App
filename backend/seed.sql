@@ -9,3 +9,14 @@ CREATE TABLE users (
     email VARCHAR NOT NULL,
     balance INT NULL
 );
+
+CREATE TABLE transactions (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR NOT NULL,
+    ticker VARCHAR NOT NULL,
+    amount INT NOT NULL,
+    quantity INT NOT NULL,
+    status VARCHAR NOT NULL,
+    date TIMESTAMP DEFAULT NOW(),
+    user_id INT REFERENCES users(id) 
+);
