@@ -1,3 +1,18 @@
+# TTP-FS-App
+
+## Running the Backend
+
+In the `TTP-FS-App/backend` directory, please run
+
+1. `npm install`
+2. `node index.js`
+
+[Click Here to See Backend Documentation created by Postman](https://documenter.getpostman.com/view/6369477/SzKVRJBD)
+
+<!-- TODO ADD SCREEN SHOTS OF DOCS -->
+
+<hr/>
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
