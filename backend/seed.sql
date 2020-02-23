@@ -41,15 +41,15 @@ VALUES
 INSERT INTO transactions 
     (name, ticker, amount, quantity, status, user_id)
 VALUES   
-    ('transaction1', 'tran1', 2.99, 5, 'BOUGHT', 1),
+    ('transaction1', 'tran1', 2.99, 5, 'PURCHASED', 1),
     ('transaction2', 'tran1', 3.99, 5, 'SOLD', 1),
-    ('transaction1', 'tran1', 5.99, 5, 'BOUGHT', 2),
+    ('transaction1', 'tran1', 5.99, 5, 'PURCHASED', 2),
     ('transaction2', 'tran1', 6.99, 5, 'SOLD', 2),
-    ('transaction3', 'tran1', 7.99, 5, 'BOUGHT', 2),
-    ('transaction1', 'tran1', 11.99, 5, 'BOUGHT', 3),
-    ('transaction2', 'tran1', 632.99, 5, 'BOUGHT', 3),
+    ('transaction3', 'tran1', 7.99, 5, 'PURCHASED', 2),
+    ('transaction1', 'tran1', 11.99, 5, 'PURCHASED', 3),
+    ('transaction2', 'tran1', 632.99, 5, 'PURCHASED', 3),
     ('transaction1', 'tran1', 23.99, 5, 'SOLD', 4),
-    ('transaction2', 'tran1', 209.99, 5, 'BOUGHT', 4);
+    ('transaction2', 'tran1', 209.99, 5, 'PURCHASED', 4);
 
 INSERT INTO portfolio 
     (name, ticker, current_value, quantity, user_id)
