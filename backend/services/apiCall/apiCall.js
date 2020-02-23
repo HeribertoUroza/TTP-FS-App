@@ -19,4 +19,6 @@ const getApiData = ticker => {
 
 }
 
-export default getApiData;
+module.exports = {
+    getApiData
+}

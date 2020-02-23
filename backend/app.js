@@ -7,6 +7,7 @@ const cors = require('cors');
 const { getUserRouter } = require('./routes/users');
 const { getPortfolioRouter } = require('./routes/portfolio');
 const { getTransactionRouter } = require('./routes/transaction');
+const { getApiRouter } = require('./routes/api');
 
 // ----FUNCTION THAT RETURNS APP
 const getApp = _=> {
@@ -28,6 +29,7 @@ const getApp = _=> {
     app.use('/user', getUserRouter());
     app.use('/portfolio', getPortfolioRouter());
     app.use('/transaction', getTransactionRouter());
+    app.use('/api', getApiRouter());
 
     return app;
 }
