@@ -23,11 +23,30 @@ const addTransaction = ( request, response ) => {
         });
 };
 
+// ----GET ALL TRANSACTIONS BY USER
+const getTransactions = ( request, response ) => {
+    const { user_id } = request.params;
+
+    TransactionServices.getAllTransactions(user_id)
+        .then( data => {
+            response.status(200).json({
+                message: 'Success',
+                data
+            })
+        })
+        .catch( error => {
+            response.status(400).json({
+                message: error.toString()
+            })
+        });
+};
+
 //  ----TRANSACTION ROUTER
 const getTransactionRouter = _=> {
     const TransactionRouter = express.Router();
 
     TransactionRouter.post('/:user_id', addTransaction);
+    TransactionRouter.get('/:user_id', getTransactions);
 
     return TransactionRouter;
 }

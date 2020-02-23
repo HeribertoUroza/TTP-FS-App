@@ -15,6 +15,16 @@ const { dbAddress } = require('./dbConnection/dbAddress');
         `, { name, ticker, amount, quantity, status, user_id }
     )
 
+    // ----GET ALL TRANSACTIONS BY USER
+    const getAllTransactions = ( user_id ) => getDbConnection(dbAddress).any(
+        `
+            SELECT *
+            FROM transactions
+            WHERE user_id = $[user_id]
+        `, { user_id }
+    )
+
 module.exports = {
-    postReqTransaction
+    postReqTransaction,
+    getAllTransactions
 }
