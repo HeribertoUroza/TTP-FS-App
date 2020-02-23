@@ -29,13 +29,22 @@ const updateStock = ( request, response ) => {
 
     PortfolioService.putReqStock(user_id, name, current_value, quantity)
         .then(data => {
+            if(!data){
+                response.status(400).json({
+                    message: 'Something Went Wrong'
+                })
+                return;
+            }
+
             response.status(200).json({
                 message: 'Success',
                 data
             });
         })
-        .then( error => {
-            message: error.toString()
+        .catch( error => {
+            response.status(400).json({
+                message: error.toString()
+            })
         });
 };
 
