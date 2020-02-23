@@ -27,7 +27,6 @@ CREATE TABLE portfolio (
     ticker VARCHAR NOT NULL,
     current_value INT,
     quantity INT,
-    performance VARCHAR,
     user_id INT REFERENCES users(id)
 );
 
@@ -53,14 +52,14 @@ VALUES
     ('transaction2', 'tran1', 209.99, 5, 'BOUGHT', 4);
 
 INSERT INTO portfolio 
-    (name, ticker, current_value, quantity, performance, user_id)
+    (name, ticker, current_value, quantity, user_id)
 VALUES
-    ('name1', 'nme1', 22.99, 5, 'GOOD', 1),
-    ('transaction2', 'tran2', 2.99, 5, 'EQUAL', 1),
-    ('transaction3', 'tran3', 0.99, 5, 'BAD', 1),
-    ('name1', 'nme1', 22.99, 5, 'GOOD', 2),
-    ('transaction2', 'tran2', 2.99, 5, 'EQUAL', 2),
-    ('transaction1', 'tran1', 0.99, 5, 'BAD', 3),
-    ('name1', 'nme1', 22.99, 5, 'GOOD', 4),
-    ('transaction2', 'tran2', 2.99, 5, 'EQUAL', 4),
-    ('transaction1', 'tran1', 0.99, 5, 'BAD', 4);
+    ('name1', 'nme1', 22.99, 5, 1),
+    ('transaction2', 'tran2', 2.99, 5, 1),
+    ('transaction3', 'tran3', 0.99, 5, 1),
+    ('name1', 'nme1', 22.99, 5, 2),
+    ('transaction2', 'tran2', 2.99, 5, 2),
+    ('transaction1', 'tran1', 0.99, 5, 3),
+    ('name1', 'nme1', 22.99, 5, 4),
+    ('transaction2', 'tran2', 2.99, 5, 4),
+    ('transaction1', 'tran1', 0.99, 5, 4);
