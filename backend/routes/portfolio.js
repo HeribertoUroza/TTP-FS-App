@@ -67,6 +67,24 @@ const deleteStock = ( request, response ) => {
         });
 };
 
+// ----GET ALL STOCKS BY USER ID
+const getStocks = ( request, response ) => {
+    const { user_id } = request.params;
+
+    PortfolioService.getAllReqStocks( user_id )
+        .then( data => {
+            response.status(200).json({
+                message: 'Success',
+                data
+            })
+        })
+        .catch( error => {
+            response.status(400).json({
+                message: error.toString()
+            })
+        });
+};
+
 // ----PORTFOLIO ROUTER
 const getPortfolioRouter = _=> {
     const PortfolioRouter = express.Router();
@@ -74,6 +92,7 @@ const getPortfolioRouter = _=> {
     PortfolioRouter.post('/', addStock);
     PortfolioRouter.put('/:user_id', updateStock);
     PortfolioRouter.delete('/:user_id', deleteStock);
+    PortfolioRouter.get('/:user_id', getStocks)
 
     return PortfolioRouter;
 }
