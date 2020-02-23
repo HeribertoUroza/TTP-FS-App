@@ -3,6 +3,9 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 
+// ----EXPRESS ROUTERS
+const { getUserRouter } = require('./routes/users');
+
 // ----FUNCTION THAT RETURNS APP
 const getApp = _=> {
     const app = express();
@@ -18,6 +21,9 @@ const getApp = _=> {
             message: '🏓 '
         });
     });
+
+    // ----ROUTERS
+    app.use('/user', getUserRouter());
 
     return app;
 }
