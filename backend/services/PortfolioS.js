@@ -31,7 +31,19 @@ const { dbAddress } = require('./dbConnection/dbAddress');
         `, { user_id, name, current_value, quantity }
     ); 
 
+    // ----DELETE STOCK WHEN QUANTITY REACHES 0
+    const delReqStock = ( user_id, name ) => getDbConnection(dbAddress).oneOrNone(
+        `
+            DELETE FROM portfolio
+            WHERE
+                portfolio.user_id = $[user_id]
+            AND 
+                portfolio.name = $[name]
+        `, { user_id, name }
+    )
+
 module.exports = {
     postReqStock,
-    putReqStock
+    putReqStock,
+    delReqStock
 }

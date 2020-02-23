@@ -48,12 +48,32 @@ const updateStock = ( request, response ) => {
         });
 };
 
+// ----DELETE STOCK
+const deleteStock = ( request, response ) => {
+    const { user_id } = request.params;
+    const { name } = request.body;
+
+    PortfolioService.delReqStock( user_id, name )
+        .then( data => {
+            response.status(200).json({
+                message: 'Success',
+                data
+            });
+        })
+        .catch( error => {
+            response.status(400).json({
+                message: error.toString()
+            })
+        });
+};
+
 // ----PORTFOLIO ROUTER
 const getPortfolioRouter = _=> {
     const PortfolioRouter = express.Router();
 
     PortfolioRouter.post('/', addStock);
     PortfolioRouter.put('/:user_id', updateStock);
+    PortfolioRouter.delete('/:user_id', deleteStock);
 
     return PortfolioRouter;
 }
