@@ -5,6 +5,7 @@ const cors = require('cors');
 
 // ----EXPRESS ROUTERS
 const { getUserRouter } = require('./routes/users');
+const { getPortfolioRouter} = require('./routes/portfolio');
 
 // ----FUNCTION THAT RETURNS APP
 const getApp = _=> {
@@ -24,6 +25,7 @@ const getApp = _=> {
 
     // ----ROUTERS
     app.use('/user', getUserRouter());
+    app.use('/portfolio', getPortfolioRouter());
 
     return app;
 }
