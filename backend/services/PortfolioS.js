@@ -16,8 +16,22 @@ const { dbAddress } = require('./dbConnection/dbAddress');
     );
 
 
-    // ----SELL STOCK TO PORTFOLIO
+    // ----UPDATE STOCK ON PORTFOLIO
+    const putReqStock = ( user_id, name, current_value, quantity ) => getDbConnection(dbAddress).oneOrNone(
+        `
+            UPDATE portfolio
+            SET
+                current_value = $[current_value],
+                quantity = $[quantity]
+            WHERE
+                portfolio.user_id = $[user_id]
+            AND
+                portfolio.name = $[name]
+            RETURNING name, current_value, quantity
+        `, { user_id, name, current_value, quantity }
+    ); 
 
 module.exports = {
     postReqStock,
+    putReqStock
 }

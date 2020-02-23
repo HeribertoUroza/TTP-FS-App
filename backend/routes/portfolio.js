@@ -22,11 +22,29 @@ const addStock = ( request, response ) => {
         });
 };
 
+// ----UPDATE STOCK IN PORTFOLIO
+const updateStock = ( request, response ) => {
+    const { user_id } = request.params;
+    const { name, current_value, quantity } = request.body;
+
+    PortfolioService.putReqStock(user_id, name, current_value, quantity)
+        .then(data => {
+            response.status(200).json({
+                message: 'Success',
+                data
+            });
+        })
+        .then( error => {
+            message: error.toString()
+        });
+};
+
 // ----PORTFOLIO ROUTER
 const getPortfolioRouter = _=> {
     const PortfolioRouter = express.Router();
 
     PortfolioRouter.post('/', addStock);
+    PortfolioRouter.put('/:user_id', updateStock);
 
     return PortfolioRouter;
 }
