@@ -10,7 +10,9 @@ class LandingPage extends React.Component {
     render(){
         return(
             <>
-                LandingPage
+                <div className='test1'>
+                    LandingPage
+                </div>
             </>
         )
     }

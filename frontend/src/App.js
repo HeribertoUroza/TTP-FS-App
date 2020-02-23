@@ -6,6 +6,9 @@ import LandingPage from './containers/LandingPage/LandingPage';
 import PortfolioPage from './containers/PortfolioPage/PortfolioPage';
 import TransactionPage from './containers/TransactionPage/TransactionPage';
 
+// ----CSS
+import './styles/App.css';
+
 function App() {
   return (
     <>

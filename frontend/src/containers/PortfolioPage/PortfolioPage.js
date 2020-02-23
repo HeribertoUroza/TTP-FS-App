@@ -9,9 +9,9 @@ class PortfolioPage extends React.Component {
 
     render(){
         return(
-            <>
-            PortfolioPage
-            </>
+            <div className='test2'>
+                PortfolioPage
+                </div>
         )
     }
 }

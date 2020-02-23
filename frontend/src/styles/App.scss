@@ -1,0 +1,10 @@
+// ----FULL APP STYLING 
+* {
+    margin: 0;
+    padding: 0;
+}
+
+// ----PAGES
+@import '../containers/LandingPage/landingpage';
+@import '../containers/PortfolioPage/portfoliopage';
+@import '../containers/TransactionPage/transactionpage';

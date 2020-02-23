@@ -9,9 +9,9 @@ class TransactionPage extends React.Component {
 
     render(){
         return(
-            <>
-            TransactionPage
-            </>
+            <div className='test3'>
+                TransactionPage
+                </div>
         )
     }
 }
