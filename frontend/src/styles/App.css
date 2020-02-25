@@ -38,6 +38,23 @@
   margin-top: 10%;
 }
 
+.lp-register {
+  margin-left: 15%;
+  margin-right: 15%;
+  margin-top: 10%;
+}
+
+.lp-register .register {
+  display: -ms-grid;
+  display: grid;
+}
+
+.lp-register .register .r-input {
+  margin: 2%;
+  font-size: 1rem;
+  padding: 1%;
+}
+
 .test2 {
   color: red;
 }
