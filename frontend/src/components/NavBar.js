@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function NavBar(props) {
     console.log(props)
@@ -13,15 +14,16 @@ function NavBar(props) {
         </form>
     </nav>
 
+
     const user = <nav>
-        <ul>
-            <li>Transactions</li>
-            <li>Portfolio</li>
+        <ul className='links'>
+            <li><Link to='/transactions'>Transactions</Link></li>
+            <li><Link to='/portfolio'>Portfolio</Link></li>
         </ul>
     </nav>
 
     return(
-        notUser
+        props.user ? user : notUser
     )
 }
 
