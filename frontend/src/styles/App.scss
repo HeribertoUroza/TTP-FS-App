@@ -2,9 +2,72 @@
 * {
     margin: 0;
     padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 // ----PAGES
 @import '../containers/LandingPage/landingpage';
 @import '../containers/PortfolioPage/portfoliopage';
 @import '../containers/TransactionPage/transactionpage';
+
+nav {
+    background-color: #6AEAAB;
+    width: 100%;
+    height: 15%;
+    display: grid;
+    grid-template-columns: 55% 45%;
+
+    .nav-title {
+        margin-top: 5%;
+        margin-left: 2%;
+        font-size: 2rem;
+    }
+
+    .register {
+        grid-column-start: 2;
+        
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr .5fr;
+        
+        h3 {
+          grid-column-start: 1;
+          grid-column-end: 4;
+          text-align: center;
+          margin: 2%;
+          font-size: 1.5rem;
+          
+        }
+
+        .r-email {
+            grid-column-start: 1;
+            grid-column-end: 2;
+            margin: 5%;
+            font-size: 1rem;
+        }
+
+        .r-password {
+            grid-column-start: 2;
+            grid-column-end: 3;
+            margin: 5%;
+            font-size: 1rem;
+        }
+
+        .login {
+            grid-column-start: 3;
+            grid-column-end: 4;
+            margin: 5%;
+            font-size: 1rem;
+        }
+
+    }
+
+    ul {
+        grid-column-start: 2;
+        
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        text-decoration: none;
+    }
+    
+}
