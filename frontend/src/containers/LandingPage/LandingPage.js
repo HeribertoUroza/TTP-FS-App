@@ -9,18 +9,28 @@ class LandingPage extends React.Component {
 
         this.state = {
             //user: true,
+            email: '',
+            password: '',
         }
     }
 
-    handleLogin(){
+    handleLogin = (e) => {
+        e.preventDefault();
+
         this.props.history.push('/portfolio')
     }
 
+    handleOnChange = (e) => {
+        e.preventDefault();
+
+        this.setState({ [e.target.name]: e.target.value });
+    }
+
     render(){
-        
+        console.log(this.props)
         return(
             <>
-                <NavBar user={this.state.user} onClick={this.handleLogin}></NavBar>
+                <NavBar user={this.state.user} onClick={this.handleLogin} onChange={this.handleOnChange} ></NavBar>
             </>
         )
     }
