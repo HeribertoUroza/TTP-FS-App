@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 function NavBar(props) {
     console.log(props)
 
-    const notUser = <nav>
+    const notUser = <nav className='nav-notuser'>
         <h1 className='nav-title'>TTP-FS-App</h1>
         <form className='register' >
             <h3>Coming Back? Sign back here!</h3>
@@ -15,10 +15,11 @@ function NavBar(props) {
     </nav>
 
 
-    const user = <nav>
+    const user = <nav className='nav-user'>
+        <h1 className='nav-title'>Hello</h1>
         <ul className='links'>
-            <li><Link to='/transactions'>Transactions</Link></li>
-            <li><Link to='/portfolio'>Portfolio</Link></li>
+            <li><Link to='/transaction' className='link'>Transactions</Link></li>
+            <li><Link to='/portfolio' className='link'>Portfolio</Link></li>
         </ul>
     </nav>
 
