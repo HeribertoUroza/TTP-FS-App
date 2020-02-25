@@ -16,7 +16,7 @@ class LandingPage extends React.Component {
 
     handleLogin = (e) => {
         e.preventDefault();
-
+        //add firebase auth
         this.props.history.push('/portfolio')
     }
 
@@ -31,6 +31,19 @@ class LandingPage extends React.Component {
         return(
             <>
                 <NavBar user={this.state.user} onClick={this.handleLogin} onChange={this.handleOnChange} ></NavBar>
+                <div className='lp-container'>
+                    <section className='lp-welcome'>
+                        <h1 className='lp-title'>Sign Up Now To Gain Access To The Financial Data You Want!</h1>
+                        <br />
+                        <h1 className='lp-offer' >Limited Time Offer!</h1>
+                        <h1 className='lp-body' >If You Sign Up Now, We Will Add $5000 To Your Portfolio So You Can Get Started!</h1>
+
+                    </section>
+
+                    <section className='lp-register'>
+                        
+                    </section>
+                </div>
             </>
         )
     }

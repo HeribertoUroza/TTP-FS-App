@@ -24,14 +24,14 @@
         font-weight: 100;
     }
 
-    .register {
+    .login-section {
         grid-column-start: 2;
         
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
         grid-template-rows: 1fr 1fr .5fr;
         
-        h3 {
+        .nav-subtitle {
           grid-column-start: 1;
           grid-column-end: 4;
           text-align: center;
@@ -41,14 +41,14 @@
           
         }
 
-        .r-email {
+        .l-email {
             grid-column-start: 1;
             grid-column-end: 2;
             margin: 5%;
             font-size: 1rem;
         }
 
-        .r-password {
+        .l-password {
             grid-column-start: 2;
             grid-column-end: 3;
             margin: 5%;

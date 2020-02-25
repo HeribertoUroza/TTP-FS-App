@@ -1,0 +1,35 @@
+
+.lp-container {
+    display: grid;
+    grid-template-columns: 55% 45%;
+
+    .lp-welcome {
+        margin-left: 10%;
+        margin-right: 10%;    
+    
+        .lp-title {
+        font-size: 2rem;
+        font-weight: 100;
+        text-align: center;
+        margin-top: 10%;
+        }
+
+        .lp-offer {
+            font-size: 2rem;
+            font-weight: 300;
+            text-align: center;
+            margin-top: 10%;
+            color: red;
+        }
+
+        .lp-body {
+            font-size: 2rem;
+            font-weight: 100;
+            text-align: center;
+            margin-top: 10%;
+        }
+    }
+    
+    
+
+}

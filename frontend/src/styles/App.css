@@ -4,6 +4,40 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
+.lp-container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 55% 45%;
+      grid-template-columns: 55% 45%;
+}
+
+.lp-container .lp-welcome {
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+.lp-container .lp-welcome .lp-title {
+  font-size: 2rem;
+  font-weight: 100;
+  text-align: center;
+  margin-top: 10%;
+}
+
+.lp-container .lp-welcome .lp-offer {
+  font-size: 2rem;
+  font-weight: 300;
+  text-align: center;
+  margin-top: 10%;
+  color: red;
+}
+
+.lp-container .lp-welcome .lp-body {
+  font-size: 2rem;
+  font-weight: 100;
+  text-align: center;
+  margin-top: 10%;
+}
+
 .test2 {
   color: red;
 }
@@ -29,7 +63,7 @@
   font-weight: 100;
 }
 
-.nav-notuser .register {
+.nav-notuser .login-section {
   -ms-grid-column: 2;
       grid-column-start: 2;
   display: -ms-grid;
@@ -40,7 +74,7 @@
       grid-template-rows: 1fr 1fr .5fr;
 }
 
-.nav-notuser .register h3 {
+.nav-notuser .login-section .nav-subtitle {
   -ms-grid-column: 1;
       grid-column-start: 1;
   grid-column-end: 4;
@@ -50,7 +84,7 @@
   font-weight: 100;
 }
 
-.nav-notuser .register .r-email {
+.nav-notuser .login-section .l-email {
   -ms-grid-column: 1;
       grid-column-start: 1;
   grid-column-end: 2;
@@ -58,7 +92,7 @@
   font-size: 1rem;
 }
 
-.nav-notuser .register .r-password {
+.nav-notuser .login-section .l-password {
   -ms-grid-column: 2;
       grid-column-start: 2;
   grid-column-end: 3;
@@ -66,7 +100,7 @@
   font-size: 1rem;
 }
 
-.nav-notuser .register .login {
+.nav-notuser .login-section .login {
   -ms-grid-column: 3;
       grid-column-start: 3;
   grid-column-end: 4;
