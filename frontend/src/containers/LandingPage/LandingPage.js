@@ -8,14 +8,19 @@ class LandingPage extends React.Component {
         super(props)
 
         this.state = {
-            user: null,
+            //user: true,
         }
     }
 
+    handleLogin(){
+        this.props.history.push('/portfolio')
+    }
+
     render(){
+        
         return(
             <>
-                <NavBar user={this.state.user}></NavBar>
+                <NavBar user={this.state.user} onClick={this.handleLogin}></NavBar>
             </>
         )
     }

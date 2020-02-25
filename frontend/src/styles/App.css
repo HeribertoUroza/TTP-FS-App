@@ -12,7 +12,7 @@
   color: orange;
 }
 
-nav {
+.nav-notuser {
   background-color: #6AEAAB;
   width: 100%;
   height: 15%;
@@ -22,13 +22,14 @@ nav {
       grid-template-columns: 55% 45%;
 }
 
-nav .nav-title {
+.nav-notuser .nav-title {
   margin-top: 5%;
   margin-left: 2%;
   font-size: 2rem;
+  font-weight: 100;
 }
 
-nav .register {
+.nav-notuser .register {
   -ms-grid-column: 2;
       grid-column-start: 2;
   display: -ms-grid;
@@ -39,16 +40,17 @@ nav .register {
       grid-template-rows: 1fr 1fr .5fr;
 }
 
-nav .register h3 {
+.nav-notuser .register h3 {
   -ms-grid-column: 1;
       grid-column-start: 1;
   grid-column-end: 4;
   text-align: center;
   margin: 2%;
   font-size: 1.5rem;
+  font-weight: 100;
 }
 
-nav .register .r-email {
+.nav-notuser .register .r-email {
   -ms-grid-column: 1;
       grid-column-start: 1;
   grid-column-end: 2;
@@ -56,7 +58,7 @@ nav .register .r-email {
   font-size: 1rem;
 }
 
-nav .register .r-password {
+.nav-notuser .register .r-password {
   -ms-grid-column: 2;
       grid-column-start: 2;
   grid-column-end: 3;
@@ -64,7 +66,7 @@ nav .register .r-password {
   font-size: 1rem;
 }
 
-nav .register .login {
+.nav-notuser .register .login {
   -ms-grid-column: 3;
       grid-column-start: 3;
   grid-column-end: 4;
@@ -72,13 +74,36 @@ nav .register .login {
   font-size: 1rem;
 }
 
-nav ul {
+.nav-user {
+  background-color: #6AEAAB;
+  width: 100%;
+  height: 15%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 55% 45%;
+      grid-template-columns: 55% 45%;
+}
+
+.nav-user .nav-title {
+  margin: 5%;
+  font-size: 2rem;
+  font-weight: 100;
+}
+
+.nav-user .links {
   -ms-grid-column: 2;
       grid-column-start: 2;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 1fr 1fr;
       grid-template-columns: 1fr 1fr;
+  font-size: 1.5rem;
+  list-style: none;
+  margin: 5%;
+}
+
+.nav-user .links .link {
   text-decoration: none;
+  margin: 5%;
 }
 /*# sourceMappingURL=App.css.map */
