@@ -33,7 +33,11 @@ class LandingPage extends React.Component {
                 this.props.history.push('/portfolio');
             })
             .catch(error => {
-                this.setState({ loginError: error.message });
+                this.setState({ 
+                    nav_email: '',
+                    nav_password: '',
+                    loginError: error.message 
+                });
             })
     }
 
