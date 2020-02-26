@@ -1,6 +1,9 @@
 import React from 'react';
 import firebase from '../../firebase/config';
 
+// ----API CALLS
+import { createUser } from '../../services/apiCalls';
+
 // ----COMPONENT
 import NavBar from '../../components/NavBar';
 
@@ -19,7 +22,9 @@ class LandingPage extends React.Component {
 
     handleLogin = (e) => {
         e.preventDefault();
-        //add firebase auth
+        
+        const { email, password } = this.state;
+        
         this.props.history.push('/portfolio')
     }
 
@@ -36,11 +41,15 @@ class LandingPage extends React.Component {
 
         firebase.auth().createUserWithEmailAndPassword(email, password)
             .then( res => {
-                console.log(res)
+                createUser(fullname, email)
+                    .then( res => {
+                        this.props.history.push('/portfolio');
+                    })
             })
             .catch( error => {
-                //console.log(error.message)
                 this.setState({
+                    email: '',
+                    password: '',
                     error: error.message
                 })
             })
@@ -63,9 +72,9 @@ class LandingPage extends React.Component {
 
                     <section className='lp-register'>
                         <form className='register'>
-                            <input className='r-input r-fullname' name='fullname' placeholder='Enter Your Full Name' autoComplete='on' onChange={this.handleOnChange} type='name' ></input>
-                            <input className='r-input r-email' name='email' placeholder='Enter Your Email' autoComplete='on' onChange={this.handleOnChange} type='email' ></input>
-                            <input className='r-input r-password' name='password' placeholder='Create Your Password' autoComplete='on' onChange={this.handleOnChange} type='password' ></input>
+                            <input className='r-input r-fullname' name='fullname' placeholder='Enter Your Full Name' autoComplete='on' onChange={this.handleOnChange} type='name' value={this.state.fullname} ></input>
+                            <input className='r-input r-email' name='email' placeholder='Enter Your Email' autoComplete='on' onChange={this.handleOnChange} type='email' value={this.state.email }></input>
+                            <input className='r-input r-password' name='password' placeholder='Create Your Password' autoComplete='on' onChange={this.handleOnChange} type='password' value={this.state.password} ></input>
                             <span className='r-input error-message'>{error ? error : ''}</span>
                             <button className='r-input r-signup' onClick={this.handleSignUp }>Sign Up</button>
                         </form>
