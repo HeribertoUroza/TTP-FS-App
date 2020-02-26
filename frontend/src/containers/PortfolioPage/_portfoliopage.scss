@@ -1,3 +1,24 @@
-.test2 {
-    color: red;
+.p-container {
+    display: grid;
+    min-height: 100%;
+    width: 100%;
+    grid-template-columns: 55% 45%;
+    grid-template-rows: 20% 80%;
+
+
+    .p-title {
+        grid-column-start: 1;
+        grid-row-start: 1;
+        grid-row-end: 2;
+        margin-top: 5%;
+        margin-left: 2%;
+        font-size: 2rem;
+        font-weight: 100;
+        text-align: center;
+    }
+
+    .p-data {
+        grid-column-start: 1;
+        grid-row-start: 3;
+    }
 }

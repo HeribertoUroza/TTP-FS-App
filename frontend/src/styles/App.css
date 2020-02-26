@@ -59,8 +59,35 @@
   color: red;
 }
 
-.test2 {
-  color: red;
+.p-container {
+  display: -ms-grid;
+  display: grid;
+  min-height: 100%;
+  width: 100%;
+  -ms-grid-columns: 55% 45%;
+      grid-template-columns: 55% 45%;
+  -ms-grid-rows: 20% 80%;
+      grid-template-rows: 20% 80%;
+}
+
+.p-container .p-title {
+  -ms-grid-column: 1;
+      grid-column-start: 1;
+  -ms-grid-row: 1;
+      grid-row-start: 1;
+  grid-row-end: 2;
+  margin-top: 5%;
+  margin-left: 2%;
+  font-size: 2rem;
+  font-weight: 100;
+  text-align: center;
+}
+
+.p-container .p-data {
+  -ms-grid-column: 1;
+      grid-column-start: 1;
+  -ms-grid-row: 3;
+      grid-row-start: 3;
 }
 
 .test3 {
@@ -160,5 +187,41 @@
 .nav-user .links .link {
   text-decoration: none;
   margin: 5%;
+}
+
+.no-data {
+  text-align: center;
+  margin-top: 20%;
+  font-weight: 100;
+  font-size: 2rem;
+}
+
+.p-title-h3 {
+  font-size: 1.8rem;
+  margin-bottom: 5%;
+  border-bottom: #6AEAAB solid 2px;
+}
+
+.p-title-h3 .title-s {
+  margin-right: 15%;
+}
+
+.pi-ul {
+  font-size: 1.5rem;
+  text-align: center;
+  list-style: none;
+}
+
+.pi-ul .pi-li {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.pi-ul .pi-li .info {
+  font-size: 1.8rem;
+  margin-right: 20%;
+  margin-top: 10%;
 }
 /*# sourceMappingURL=App.css.map */
