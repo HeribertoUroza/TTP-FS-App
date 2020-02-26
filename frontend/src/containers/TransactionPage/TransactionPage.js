@@ -23,9 +23,8 @@ class TransactionPage extends React.Component {
     componentDidMount() {
         this.unsubscribe = firebase.auth().onAuthStateChanged((user) => {
             if (user) {
-                getTransaction('jdoe@email.com')
+                getTransaction(user.email)
                     .then( res => {
-                        console.log(res.data.data)
 
                         this.setState({
                             user: user,
@@ -85,10 +84,9 @@ class TransactionPage extends React.Component {
 
                                 </>
                             )
+                        } else {
+                            this.props.history.push('/')
                         }
-                        // else {
-                        //     this.props.history.push('/')
-                        // }
                     }
                 }
             </AuthContext.Consumer>

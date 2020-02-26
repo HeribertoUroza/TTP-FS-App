@@ -28,7 +28,7 @@ class PortfolioPage extends React.Component {
     componentDidMount() {
         this.unsubscribe = firebase.auth().onAuthStateChanged((user) => {
             if (user) {
-                getPortfolio('jdoe@email.com')
+                getPortfolio(user.email)
                     .then( res => {
                     
                         this.setState({
@@ -91,7 +91,20 @@ class PortfolioPage extends React.Component {
     
         let parsedData = await tickerInfo[search_ticker.toUpperCase()].quote
 
-        console.log(parsedData)
+        let realTimePrice = parsedData.iexRealtimePrice
+        let latestPrice = parsedData.latestPrice
+        let companyName = parsedData.companyName
+        
+        latestPrice = '$' + latestPrice 
+        this.setState({
+            realTimePrice, latestPrice, companyName
+        })
+    }
+
+    handleBuy = (e) => {
+        e.preventDefault();
+
+        // add to db, re-render portfolio. 
     }
 
     render(){
@@ -117,19 +130,19 @@ class PortfolioPage extends React.Component {
                                                 <input className='search-input' placeholder='Search By Ticker' autoComplete='off' onChange={this.handleOnChange} name='search_ticker' value={this.state.search_ticker}></input>
                                                 <button className='search-button' onClick={this.handleSearch}>SEARCH TICKER</button>
                                                 <div className='ticker-data'>
+                                                    <span>{this.state.companyName}</span><br/><span>{this.state.realTimePrice}</span>
                                                 </div>
-                                                <input className='quantity-input' type='number' min='1' placeholder='Quantity'></input>
-                                                <button className='search-button' >BUY</button>
+                                                <input className='quantity-input' type='number' min='1' placeholder='Quantity' onChange={this.handleOnChange} name='quantity'></input>
+                                                <button className='search-button' onClick={this.handleBuy}>BUY</button>
                                             </form>
                                         </section>
                                     </div>
                                 
                                 </>
                             )
-                         } 
-                        //else {
-                        //     this.props.history.push('/')
-                        // }
+                         } else {
+                            this.props.history.push('/')
+                        }
                     }
                 }
             </AuthContext.Consumer>
