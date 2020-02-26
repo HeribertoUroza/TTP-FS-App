@@ -14,6 +14,15 @@ const createUser = ( full_name, email ) => {
 
 } 
 
+// ----GET PORTFOLIO BY EMAIL
+const getPortfolio = email => {
+    return axios({
+        method: 'get',
+        url: `http://localhost:3001/portfolio/${email}`
+    })
+}
+
 export {
-    createUser
+    createUser,
+    getPortfolio,
 }

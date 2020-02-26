@@ -15,10 +15,11 @@ function NavBar(props) {
 
 
     const user = <nav className='nav-user'>
-        <h1 className='nav-title'>Hello, </h1>
+        <h1 className='nav-title'>Hello, {props.full_name}</h1>
         <ul className='links'>
             <Link to='/transaction' className='link'><li>Transactions</li></Link>
             <Link to='/portfolio' className='link'><li>Portfolio</li></Link>
+            <button className='link' onClick={props.onClick} >Logout</button>
         </ul>
     </nav>
 
