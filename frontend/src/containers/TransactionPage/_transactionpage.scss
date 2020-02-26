@@ -1,0 +1,24 @@
+.tranContainer {
+    text-align: center;
+
+    .tranTitle {
+        font-size: 2rem;
+        font-weight: 100;
+        margin: 2%;
+    }
+
+}
+
+.tranListContainer {
+
+    .tranListItem {
+        list-style: none;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+
+    }
+    .info{
+            font-size: 1.6rem;
+            margin-bottom: 8%;
+        }
+}

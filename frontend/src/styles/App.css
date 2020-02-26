@@ -115,6 +115,29 @@
   padding: 2%;
 }
 
+.tranContainer {
+  text-align: center;
+}
+
+.tranContainer .tranTitle {
+  font-size: 2rem;
+  font-weight: 100;
+  margin: 2%;
+}
+
+.tranListContainer .tranListItem {
+  list-style: none;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+
+.tranListContainer .info {
+  font-size: 1.6rem;
+  margin-bottom: 8%;
+}
+
 .nav-notuser {
   background-color: #6AEAAB;
   width: 100%;
@@ -221,6 +244,8 @@
   font-size: 1.8rem;
   margin-bottom: 5%;
   border-bottom: #6AEAAB solid 2px;
+  margin-left: 2%;
+  margin-right: 2%;
 }
 
 .p-title-h3 .title-s {
