@@ -30,8 +30,17 @@ const getTickerInfo = symbol => {
     })
 }
 
+// ----GET TRANSACTIONS BY EMAIL
+const getTransaction = email => {
+    return axios({
+        method: 'get',
+        url: `http://localhost:3001/transaction/${email}`
+    })
+}
+
 export {
     createUser,
     getPortfolio,
     getTickerInfo,
+    getTransaction,
 }
