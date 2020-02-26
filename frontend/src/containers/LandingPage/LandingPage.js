@@ -1,4 +1,5 @@
 import React from 'react';
+import firebase from '../../firebase/config';
 
 // ----COMPONENT
 import NavBar from '../../components/NavBar';
@@ -8,11 +9,11 @@ class LandingPage extends React.Component {
         super(props)
 
         this.state = {
-            //user: true,
+            user: null,
             email: '',
             password: '',
             fullname: '',
-        
+            error: ''
         }
     }
 
@@ -31,11 +32,23 @@ class LandingPage extends React.Component {
     handleSignUp = (e) => {
         e.preventDefault();
 
-        console.log('sign up button')
+        const { fullname, email, password } = this.state;
+
+        firebase.auth().createUserWithEmailAndPassword(email, password)
+            .then( res => {
+                console.log(res)
+            })
+            .catch( error => {
+                //console.log(error.message)
+                this.setState({
+                    error: error.message
+                })
+            })
     }
 
     render(){
-        console.log(this.props)
+        const { error } = this.state;
+
         return(
             <>
                 <NavBar user={this.state.user} onClick={this.handleLogin} onChange={this.handleOnChange} ></NavBar>
@@ -53,6 +66,7 @@ class LandingPage extends React.Component {
                             <input className='r-input r-fullname' name='fullname' placeholder='Enter Your Full Name' autoComplete='on' onChange={this.handleOnChange} type='name' ></input>
                             <input className='r-input r-email' name='email' placeholder='Enter Your Email' autoComplete='on' onChange={this.handleOnChange} type='email' ></input>
                             <input className='r-input r-password' name='password' placeholder='Create Your Password' autoComplete='on' onChange={this.handleOnChange} type='password' ></input>
+                            <span className='r-input error-message'>{error ? error : ''}</span>
                             <button className='r-input r-signup' onClick={this.handleSignUp }>Sign Up</button>
                         </form>
                     </section>
