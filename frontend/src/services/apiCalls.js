@@ -14,6 +14,24 @@ const createUser = ( full_name, email ) => {
 
 } 
 
+// ----GET PORTFOLIO BY EMAIL
+const getPortfolio = email => {
+    return axios({
+        method: 'get',
+        url: `http://localhost:3001/portfolio/${email}`
+    })
+}
+
+// ----GET TICKER INFO FROM API
+const getTickerInfo = symbol => {
+    return axios({
+        method: 'get',
+        url: `http://localhost:3001/api/${symbol}`
+    })
+}
+
 export {
-    createUser
+    createUser,
+    getPortfolio,
+    getTickerInfo,
 }

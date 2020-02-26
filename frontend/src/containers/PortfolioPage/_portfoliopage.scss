@@ -1,3 +1,53 @@
-.test2 {
-    color: red;
+.p-container {
+    display: grid;
+    grid-template-columns: 55% 45%;
+    grid-template-rows: 20% 80%;
+
+
+    .p-title {
+        grid-column-start: 1;
+        grid-row-start: 1;
+        grid-row-end: 2;
+        margin-top: 5%;
+        margin-left: 2%;
+        font-size: 2rem;
+        font-weight: 100;
+        text-align: center;
+    }
+
+    .p-data {
+        grid-column-start: 1;
+        grid-row-start: 3;
+    }
+
+    .p-search {
+
+        .search-form {
+            display: grid;
+            
+            grid-template-rows: 1fr 1fr 1fr;
+            margin: 20%;
+    
+
+            .search-input {
+                font-size: 1.2rem;
+                margin: 5%;
+                padding: 2%;
+            }
+
+            .quantity-input {
+                font-size: 1.2rem;
+                margin: 5%;
+                padding: 2%;
+                width: 84%;
+            }
+
+            .search-button {
+                font-size: 1.2rem;
+                margin: 5%;
+                padding: 2%
+            }
+
+        }
+    }
 }

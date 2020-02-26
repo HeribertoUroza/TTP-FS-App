@@ -69,9 +69,9 @@ const deleteStock = ( request, response ) => {
 
 // ----GET ALL STOCKS BY USER ID
 const getStocks = ( request, response ) => {
-    const { user_id } = request.params;
+    const { email } = request.params;
 
-    PortfolioService.getAllReqStocks( user_id )
+    PortfolioService.getAllReqStocks( email )
         .then( data => {
             response.status(200).json({
                 message: 'Success',
@@ -92,7 +92,7 @@ const getPortfolioRouter = _=> {
     PortfolioRouter.post('/', addStock);
     PortfolioRouter.put('/:user_id', updateStock);
     PortfolioRouter.delete('/:user_id', deleteStock);
-    PortfolioRouter.get('/:user_id', getStocks)
+    PortfolioRouter.get('/:email', getStocks)
 
     return PortfolioRouter;
 }
