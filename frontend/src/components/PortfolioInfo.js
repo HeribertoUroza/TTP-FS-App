@@ -15,12 +15,7 @@ function PortfolioInfo(props) {
         
         {
             props.data.map((e,i) => {
-                    return (
-                    <>
-                            <li className='pi-li' key={i} ><span className='info'>{e.name}</span><span className='info' >{e.ticker}</span><span className='info' >{e.quantity}</span><span className='info' >${e.current_value}</span></li>
-                            {/* <input className='pi-sell' type='number' min='1' max={e.quantity} ></input><button className='pi-sell'>Sell</button> */}
-                    </>
-                    )
+                    return <li className='pi-li' key={i} ><span className='info'>{e.name}</span><span className='info' >{e.ticker}</span><span className='info' >{e.quantity}</span><span className='info' >${e.current_value}</span></li>
                 })
         }
         </ul>

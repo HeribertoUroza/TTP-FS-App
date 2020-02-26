@@ -9,7 +9,7 @@ import NavBar from '../../components/NavBar';
 import PortfolioInfo from '../../components/PortfolioInfo';
 
 // ----API CALLS
-import { getPortfolio } from '../../services/apiCalls';
+import { getPortfolio, getTickerInfo } from '../../services/apiCalls';
 
 class PortfolioPage extends React.Component {
     constructor(props) {
@@ -19,7 +19,9 @@ class PortfolioPage extends React.Component {
             user: null,
             userEmail: '',
             data: [],
-            full_name: ''
+            full_name: '',
+            search_ticker: '',
+            tickerInfo: []
         };
     }
 
@@ -28,7 +30,6 @@ class PortfolioPage extends React.Component {
             if (user) {
                 getPortfolio('jdoe@email.com')
                     .then( res => {
-                        console.log(res.data.data)
                     
                         this.setState({
                             user: user,
@@ -58,8 +59,43 @@ class PortfolioPage extends React.Component {
         this.props.history.push('/');
     }
 
+    handleOnChange = (e) => {
+        e.preventDefault();
+
+        this.setState({ [e.target.name]: e.target.value });
+    }
+
+    handleSearch = (e) => {
+        e.preventDefault();
+
+        const {search_ticker} = this.state;
+
+        if(search_ticker !== ''){
+            getTickerInfo(search_ticker)
+                .then(res => {
+                    this.setState({
+                        tickerInfo: res.data.data
+                    })
+                })
+                .then(() => {
+                    this.parseTickerInfo()
+                })
+                .catch( error => {
+                    console.log(error)
+                })
+        }
+    }
+
+    parseTickerInfo = async() => {
+        const { tickerInfo, search_ticker } = this.state
+    
+        let newObj = await tickerInfo[search_ticker.toUpperCase()].quote
+
+        console.log(newObj)
+    }
+
     render(){
-        console.log(this.state)
+     
         return(
             <AuthContext.Consumer>
                 {
@@ -68,18 +104,24 @@ class PortfolioPage extends React.Component {
                             return(
                                 <>
                                     <NavBar user={user} full_name={this.state.full_name} onClick={this.handleLogOut} ></NavBar>
-                                    <section className='p-container'>
-                                        <h1 className='p-title'>Portfolio Balance: ${this.state.balance}</h1>
+                                    
+                                    <div className='p-container'>
+                                        <section>
+                                            <h1 className='p-title'>Portfolio Balance: ${this.state.balance}</h1>
 
-                                        <div className='p-data'><PortfolioInfo data={this.state.data} ></PortfolioInfo></div>
+                                            <div className='p-data'><PortfolioInfo data={this.state.data} ></PortfolioInfo></div>
+                                        </section>
 
                                         <section className='p-search'>
-                                            <form>
-                                                <input></input>
-                                                <button>BUY</button>
+                                            <form className='search-form'>
+                                                <input className='search-input' placeholder='Search By Ticker' autoComplete='off' onChange={this.handleOnChange} name='search_ticker' value={this.state.search_ticker}></input>
+                                                <button className='search-button' onClick={this.handleSearch}>SEARCH TICKER</button>
+                                                <div className='ticker-data'></div>
+                                                <input className='quantity-input' type='number' min='1' placeholder='Quantity'></input>
+                                                <button className='search-button' >BUY</button>
                                             </form>
                                         </section>
-                                    </section>
+                                    </div>
                                 
                                 </>
                             )

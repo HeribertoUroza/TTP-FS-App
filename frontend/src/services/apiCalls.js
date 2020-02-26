@@ -22,7 +22,16 @@ const getPortfolio = email => {
     })
 }
 
+// ----GET TICKER INFO FROM API
+const getTickerInfo = symbol => {
+    return axios({
+        method: 'get',
+        url: `http://localhost:3001/api/${symbol}`
+    })
+}
+
 export {
     createUser,
     getPortfolio,
+    getTickerInfo,
 }

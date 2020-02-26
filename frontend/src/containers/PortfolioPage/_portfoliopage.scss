@@ -1,7 +1,5 @@
 .p-container {
     display: grid;
-    min-height: 100%;
-    width: 100%;
     grid-template-columns: 55% 45%;
     grid-template-rows: 20% 80%;
 
@@ -20,5 +18,36 @@
     .p-data {
         grid-column-start: 1;
         grid-row-start: 3;
+    }
+
+    .p-search {
+
+        .search-form {
+            display: grid;
+            
+            grid-template-rows: 1fr 1fr 1fr;
+            margin: 20%;
+    
+
+            .search-input {
+                font-size: 1.2rem;
+                margin: 5%;
+                padding: 2%;
+            }
+
+            .quantity-input {
+                font-size: 1.2rem;
+                margin: 5%;
+                padding: 2%;
+                width: 84%;
+            }
+
+            .search-button {
+                font-size: 1.2rem;
+                margin: 5%;
+                padding: 2%
+            }
+
+        }
     }
 }
