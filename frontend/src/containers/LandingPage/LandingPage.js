@@ -16,16 +16,25 @@ class LandingPage extends React.Component {
             email: '',
             password: '',
             fullname: '',
-            error: ''
+            error: '',
+            loginError: null,
+            nav_email: '',
+            nav_password: ''
         }
     }
 
     handleLogin = (e) => {
         e.preventDefault();
         
-        const { email, password } = this.state;
+        const { nav_email, nav_password } = this.state;
         
-        this.props.history.push('/portfolio')
+        firebase.auth().signInWithEmailAndPassword(nav_email, nav_password)
+            .then(() => {
+                this.props.history.push('/portfolio');
+            })
+            .catch(error => {
+                this.setState({ loginError: error.message });
+            })
     }
 
     handleOnChange = (e) => {
@@ -56,11 +65,11 @@ class LandingPage extends React.Component {
     }
 
     render(){
-        const { error } = this.state;
+        const { user, error, loginError } = this.state;
 
         return(
             <>
-                <NavBar user={this.state.user} onClick={this.handleLogin} onChange={this.handleOnChange} ></NavBar>
+                <NavBar user={user} onClick={this.handleLogin} onChange={this.handleOnChange} error={loginError}></NavBar>
                 <div className='lp-container'>
                     <section className='lp-welcome'>
                         <h1 className='lp-title'>Sign Up Now To Gain Access To The Financial Data You Want!</h1>
