@@ -7,6 +7,9 @@ import AuthContext from '../../context/AuthContext';
 // ----COMPONENT
 import NavBar from '../../components/NavBar';
 
+// ----API CALLS
+import { getTransaction } from '../../services/apiCalls';
+
 
 class TransactionPage extends React.Component {
     constructor(props) {
@@ -20,10 +23,23 @@ class TransactionPage extends React.Component {
     componentDidMount() {
         this.unsubscribe = firebase.auth().onAuthStateChanged((user) => {
             if (user) {
-                this.setState({
-                    user: user,
-                    userEmail: user.email,
-                })
+                getTransaction('jdoe@email.com')
+                    .then( res => {
+                        console.log(res.data.data)
+
+                        this.setState({
+                            user: user,
+                            userEmail: user.email,
+                            full_name: res.data.data[0].full_name,
+                            data: res.data.data,
+                        })
+
+                    })
+                    .catch( error => {
+                        console.log(error)
+                    })
+
+                
             } else {
                 this.setState({
                     user: null
@@ -45,7 +61,6 @@ class TransactionPage extends React.Component {
     }
 
     render(){
-    console.log(this.props.history.location.pathname)
         return(
             <AuthContext.Consumer>
                 {
@@ -54,9 +69,13 @@ class TransactionPage extends React.Component {
                             return (
                                 <>
                                     <NavBar user={user} full_name={this.state.full_name} onClick={this.handleLogOut} path={this.props.history.location.pathname}></NavBar>
+
                                 </>
                             )
                         }
+                        // else {
+                        //     this.props.history.push('/')
+                        // }
                     }
                 }
             </AuthContext.Consumer>
