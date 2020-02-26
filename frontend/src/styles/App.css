@@ -115,10 +115,6 @@
   padding: 2%;
 }
 
-.test3 {
-  color: orange;
-}
-
 .nav-notuser {
   background-color: #6AEAAB;
   width: 100%;
@@ -202,8 +198,8 @@
       grid-column-start: 2;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 1fr 1fr 1fr;
-      grid-template-columns: 1fr 1fr 1fr;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
   font-size: 1.5rem;
   list-style: none;
   margin: 5%;
