@@ -89,9 +89,9 @@ class PortfolioPage extends React.Component {
     parseTickerInfo = async() => {
         const { tickerInfo, search_ticker } = this.state
     
-        let newObj = await tickerInfo[search_ticker.toUpperCase()].quote
+        let parsedData = await tickerInfo[search_ticker.toUpperCase()].quote
 
-        console.log(newObj)
+        console.log(parsedData)
     }
 
     render(){
@@ -116,7 +116,8 @@ class PortfolioPage extends React.Component {
                                             <form className='search-form'>
                                                 <input className='search-input' placeholder='Search By Ticker' autoComplete='off' onChange={this.handleOnChange} name='search_ticker' value={this.state.search_ticker}></input>
                                                 <button className='search-button' onClick={this.handleSearch}>SEARCH TICKER</button>
-                                                <div className='ticker-data'></div>
+                                                <div className='ticker-data'>
+                                                </div>
                                                 <input className='quantity-input' type='number' min='1' placeholder='Quantity'></input>
                                                 <button className='search-button' >BUY</button>
                                             </form>
