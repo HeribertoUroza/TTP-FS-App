@@ -43,12 +43,14 @@ const { dbAddress } = require('./dbConnection/dbAddress');
     )
 
     // ----GET ALL STOCKS BY USER
-    const getAllReqStocks = ( user_id ) => getDbConnection(dbAddress).any(
+    const getAllReqStocks = ( email ) => getDbConnection(dbAddress).any(
         `
-            SELECT * 
-            FROM portfolio
-            WHERE user_id = $[user_id]
-        `, { user_id }
+            SELECT *
+            FROM users
+            INNER JOIN portfolio
+            ON users.id = portfolio.user_id
+            WHERE users.email = $[email]
+        `, { email }
     )
 
 module.exports = {
