@@ -1,10 +1,62 @@
 * {
   margin: 0;
   padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-.test1 {
-  color: green;
+.lp-container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 55% 45%;
+      grid-template-columns: 55% 45%;
+}
+
+.lp-container .lp-welcome {
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+.lp-container .lp-welcome .lp-title {
+  font-size: 2rem;
+  font-weight: 100;
+  text-align: center;
+  margin-top: 10%;
+}
+
+.lp-container .lp-welcome .lp-offer {
+  font-size: 2rem;
+  font-weight: 600;
+  text-align: center;
+  margin-top: 10%;
+  color: #6AEAAB;
+}
+
+.lp-container .lp-welcome .lp-body {
+  font-size: 2rem;
+  font-weight: 100;
+  text-align: center;
+  margin-top: 10%;
+}
+
+.lp-register {
+  margin-left: 15%;
+  margin-right: 15%;
+  margin-top: 10%;
+}
+
+.lp-register .register {
+  display: -ms-grid;
+  display: grid;
+}
+
+.lp-register .register .r-input {
+  margin: 2%;
+  font-size: 1rem;
+  padding: 1%;
+}
+
+.lp-register .register .error-message {
+  color: red;
 }
 
 .test2 {
@@ -13,5 +65,100 @@
 
 .test3 {
   color: orange;
+}
+
+.nav-notuser {
+  background-color: #6AEAAB;
+  width: 100%;
+  height: 15%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 55% 45%;
+      grid-template-columns: 55% 45%;
+}
+
+.nav-notuser .nav-title {
+  margin-top: 5%;
+  margin-left: 2%;
+  font-size: 2rem;
+  font-weight: 100;
+}
+
+.nav-notuser .login-section {
+  -ms-grid-column: 2;
+      grid-column-start: 2;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
+  -ms-grid-rows: 1fr 1fr .5fr;
+      grid-template-rows: 1fr 1fr .5fr;
+}
+
+.nav-notuser .login-section .nav-subtitle {
+  -ms-grid-column: 1;
+      grid-column-start: 1;
+  grid-column-end: 4;
+  text-align: center;
+  margin: 2%;
+  font-size: 1.5rem;
+  font-weight: 100;
+}
+
+.nav-notuser .login-section .l-email {
+  -ms-grid-column: 1;
+      grid-column-start: 1;
+  grid-column-end: 2;
+  margin: 5%;
+  font-size: 1rem;
+}
+
+.nav-notuser .login-section .l-password {
+  -ms-grid-column: 2;
+      grid-column-start: 2;
+  grid-column-end: 3;
+  margin: 5%;
+  font-size: 1rem;
+}
+
+.nav-notuser .login-section .login {
+  -ms-grid-column: 3;
+      grid-column-start: 3;
+  grid-column-end: 4;
+  margin: 5%;
+  font-size: 1rem;
+}
+
+.nav-user {
+  background-color: #6AEAAB;
+  width: 100%;
+  height: 15%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 55% 45%;
+      grid-template-columns: 55% 45%;
+}
+
+.nav-user .nav-title {
+  margin: 5%;
+  font-size: 2rem;
+  font-weight: 100;
+}
+
+.nav-user .links {
+  -ms-grid-column: 2;
+      grid-column-start: 2;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  font-size: 1.5rem;
+  list-style: none;
+  margin: 5%;
+}
+
+.nav-user .links .link {
+  text-decoration: none;
+  margin: 5%;
 }
 /*# sourceMappingURL=App.css.map */
