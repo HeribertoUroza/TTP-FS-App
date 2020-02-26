@@ -30,14 +30,23 @@ class PortfolioPage extends React.Component {
             if (user) {
                 getPortfolio(user.email)
                     .then( res => {
-                    
-                        this.setState({
-                            user: user,
-                            userEmail: user.email,
-                            data: res.data.data,
-                            full_name: res.data.data[0].full_name,
-                            balance: res.data.data[0].balance,
-                        })
+                        console.log(res.data.data)
+                        if(res.data.data.length < 1){
+                            this.setState({
+                                user: user,
+                                userEmail: user.email,
+                                data: res.data.data,
+                                balance: 5000
+                            })
+                        } else {
+                            this.setState({
+                                user: user,
+                                userEmail: user.email,
+                                data: res.data.data,
+                                full_name: res.data.data[0].full_name,
+                                balance: res.data.data[0].balance,
+                            })
+                        }
                     })
             } else {
                 this.setState({
@@ -86,16 +95,18 @@ class PortfolioPage extends React.Component {
         }
     }
 
-    parseTickerInfo = async() => {
+    parseTickerInfo = () => {
         const { tickerInfo, search_ticker } = this.state
-    
-        let parsedData = await tickerInfo[search_ticker.toUpperCase()].quote
+        let upperCased = search_ticker.toUpperCase()
+       
+        let parsedData = tickerInfo[upperCased].quote
 
         let realTimePrice = parsedData.iexRealtimePrice
         let latestPrice = parsedData.latestPrice
         let companyName = parsedData.companyName
         
-        latestPrice = '$' + latestPrice 
+        latestPrice = '$' + latestPrice
+
         this.setState({
             realTimePrice, latestPrice, companyName
         })

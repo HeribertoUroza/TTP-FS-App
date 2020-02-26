@@ -5,7 +5,7 @@ const { api } = require('./config');
 const axios = require('axios');
 
 const getApiData = ticker => {
-    let data = axios.get(`${api.testUrl}${ticker}${api.testKey}`)
+    let data = axios.get(`${api.liveUrl}${ticker}${api.liveKey}`)
                     .then( response => {
                         response.data
                         return response.data
@@ -13,8 +13,6 @@ const getApiData = ticker => {
                     .catch( error => {
                         return error.toString()
                     })
-
-    //axios.get(`${api.liveUrl}${ticker}${api.liveKey}`)
     return data;
 
 }
