@@ -6,9 +6,9 @@ const getDbConnection = (_ => {
     let dbConnection = null;
     return dbAddress => {
         if (!dbConnection) {
-            dbConn = pgp({})(dbAddress);
+            dbConnnection = pgp({})(dbAddress);
         };
-        return dbConn;
+        return dbConnnection;
     };
 })();
 

@@ -21,7 +21,8 @@ class PortfolioPage extends React.Component {
             data: [],
             full_name: '',
             search_ticker: '',
-            tickerInfo: []
+            tickerInfo: [],
+            quantity: 0
         };
     }
 
@@ -100,12 +101,15 @@ class PortfolioPage extends React.Component {
         let upperCased = search_ticker.toUpperCase()
        
         let parsedData = tickerInfo[upperCased].quote
+        console.log('test',parsedData)
 
         let realTimePrice = parsedData.iexRealtimePrice
         let latestPrice = parsedData.latestPrice
         let companyName = parsedData.companyName
         
         latestPrice = '$' + latestPrice
+
+        console.log(realTimePrice, parsedData)
 
         this.setState({
             realTimePrice, latestPrice, companyName
@@ -115,11 +119,13 @@ class PortfolioPage extends React.Component {
     handleBuy = (e) => {
         e.preventDefault();
 
+        let { quantity } = this.state
+
         // add to db, re-render portfolio. 
     }
 
     render(){
-     
+    
         return(
             <AuthContext.Consumer>
                 {
@@ -141,7 +147,7 @@ class PortfolioPage extends React.Component {
                                                 <input className='search-input' placeholder='Search By Ticker' autoComplete='off' onChange={this.handleOnChange} name='search_ticker' value={this.state.search_ticker}></input>
                                                 <button className='search-button' onClick={this.handleSearch}>SEARCH TICKER</button>
                                                 <div className='ticker-data'>
-                                                    <span>{this.state.companyName}</span><br/><span>{this.state.realTimePrice}</span>
+                                                    <span>{this.state.companyName}</span><br /> {this.state.realTimePrice ? <span>{this.state.realTimePrice}</span> : <span>{this.state.latestPrice}</span>}
                                                 </div>
                                                 <input className='quantity-input' type='number' min='1' placeholder='Quantity' onChange={this.handleOnChange} name='quantity'></input>
                                                 <button className='search-button' onClick={this.handleBuy}>BUY</button>

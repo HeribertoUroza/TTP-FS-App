@@ -92,7 +92,7 @@ const getPortfolioRouter = _=> {
     PortfolioRouter.post('/', addStock);
     PortfolioRouter.put('/:user_id', updateStock);
     PortfolioRouter.delete('/:user_id', deleteStock);
-    PortfolioRouter.get('/:email', getStocks)
+    PortfolioRouter.get('/:email', getStocks);
 
     return PortfolioRouter;
 }
