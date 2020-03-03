@@ -22,7 +22,7 @@ function PortfolioInfo(props) {
     </>
 
     return(
-        props.data.length === 0 ? noData : data 
+        !props.data.name ? noData : data 
     )
 }
 

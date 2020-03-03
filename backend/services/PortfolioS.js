@@ -47,7 +47,7 @@ const { dbAddress } = require('./dbConnection/dbAddress');
         `
             SELECT *
             FROM users
-            INNER JOIN portfolio
+            LEFT JOIN portfolio
             ON users.id = portfolio.user_id
             WHERE users.email = $[email]
         `, { email }

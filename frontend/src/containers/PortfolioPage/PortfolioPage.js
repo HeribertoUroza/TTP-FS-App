@@ -31,8 +31,9 @@ class PortfolioPage extends React.Component {
             if (user) {
                 getPortfolio(user.email)
                     .then( res => {
-                        console.log(res.data.data)
-                        if(res.data.data.length < 1){
+                        console.log('res',res)
+                        if(!res.data.data.name){
+                            console.log('user', user)
                             this.setState({
                                 user: user,
                                 userEmail: user.email,
@@ -107,9 +108,6 @@ class PortfolioPage extends React.Component {
         let latestPrice = parsedData.latestPrice
         let companyName = parsedData.companyName
         
-        latestPrice = '$' + latestPrice
-
-        console.log(realTimePrice, parsedData)
 
         this.setState({
             realTimePrice, latestPrice, companyName
@@ -120,6 +118,7 @@ class PortfolioPage extends React.Component {
         e.preventDefault();
 
         let { quantity } = this.state
+        console.log( quantity );
 
         // add to db, re-render portfolio. 
     }
