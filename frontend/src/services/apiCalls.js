@@ -38,9 +38,51 @@ const getTransaction = email => {
     })
 }
 
+// ----ADD STOCK TO PORTFOLIO
+const addStocktoPortfolio = ( name, ticker, current_value, quantity, user_id ) => {
+    return axios({
+        method: 'post',
+        url: 'http://localhost:3001/portfolio/',
+        data: {
+            name: name,
+            ticker: ticker,
+            current_value: current_value,
+            quantity: quantity,
+            user_id: user_id
+        }
+    })
+}
+
+// ----GET USER
+const getUser = email => {
+    return axios({
+        method: 'get',
+        url: `http://localhost:3001/user/${email}`
+    })
+}
+
+// ----ADD STOCK TO TRANSACTIONS
+const addToTransactions = (name, ticker, amount, quantity, status, user_id) => {
+    return axios({
+        method: 'post',
+        url: 'http://localhost:3001/transaction/',
+        data: {
+            name: name,
+            ticker: ticker,
+            amount: amount,
+            quantity: quantity,
+            status: status,
+            user_id: user_id
+        }
+    })
+}
+
 export {
     createUser,
     getPortfolio,
     getTickerInfo,
     getTransaction,
+    addStocktoPortfolio,
+    getUser,
+    addToTransactions
 }

@@ -22,11 +22,30 @@ const createUser = ( request, response ) => {
         });
 };
 
+// ----GET USER
+const getUser = ( request, response ) => {
+    const { email } = request.params;
+
+    UserService.getUser( email )
+        .then( data => {
+            response.status(200).json({
+                message: 'Success',
+                data
+            });
+        })
+        .catch( error => {
+            response.status(400).json({
+                message: error.toString()
+            })
+        })
+}
+
 // ----USER ROUTER
 const getUserRouter = _=> {
     const UserRouter = express.Router();
 
     UserRouter.post('/', createUser );
+    UserRouter.get('/:email', getUser);
 
     return UserRouter;
 }

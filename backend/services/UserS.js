@@ -15,7 +15,17 @@ const { dbAddress } = require('./dbConnection/dbAddress');
         `, { full_name, email, balance }
     );
 
+    // ----GET USER BY EMAIL
+    const getUser = email => getDbConnection(dbAddress).oneOrNone(
+        `
+            SELECT *
+            FROM users
+            WHERE email = $[email]
+        `, { email }
+    );
+
 
 module.exports = {
     postReqUser,
+    getUser
 }
