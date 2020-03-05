@@ -1,6 +1,7 @@
 import React from 'react';
 
 function PortfolioInfo(props) {
+    console.log(props.data)
     const noData = <>
         <h1 className='no-data'>Start Buying Stocks On The Right. <br /><br />
         Search By The Companies Ticker
@@ -22,7 +23,7 @@ function PortfolioInfo(props) {
     </>
 
     return(
-        !props.data.name ? noData : data 
+        !props.data ? noData : data 
     )
 }
 

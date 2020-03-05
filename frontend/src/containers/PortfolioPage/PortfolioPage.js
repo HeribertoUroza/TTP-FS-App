@@ -17,7 +17,7 @@ class PortfolioPage extends React.Component {
 
         this.state = {
             user: null,
-            userEmail: '',
+            email: '',
             data: [],
             full_name: '',
             search_ticker: '',
@@ -127,7 +127,24 @@ class PortfolioPage extends React.Component {
 
         addStocktoPortfolio(companyName, search_ticker, currentValue, quantity, user_id )
             .then( res => {
-                console.log(res)
+                addToTransactions(companyName, search_ticker, currentValue, quantity, 'PURCHASED', user_id)
+                    .then( res => {
+                        console.log('tr',res)
+
+                        getPortfolio(this.state.email)
+                            .then(res => {
+                                this.setState({
+                                    data: res.data.data,
+                                })
+                            })
+                            .catch(error => {
+                                console.log(error)
+                            })
+
+                    })
+                    .catch(error => {
+                        console.log(error)
+                    })
 
             })
             .catch( error => {
@@ -146,7 +163,11 @@ class PortfolioPage extends React.Component {
         if(newBalance < 0){
             alert('There is not enough in your balance for this purchase')
             return;
-        } 
+        } else {
+            //update user balance
+
+            //getuser
+        }
     }
 
     render(){

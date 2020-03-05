@@ -65,14 +65,13 @@ const getUser = email => {
 const addToTransactions = (name, ticker, amount, quantity, status, user_id) => {
     return axios({
         method: 'post',
-        url: 'http://localhost:3001/transaction/',
+        url: `http://localhost:3001/transaction/${user_id}`,
         data: {
             name: name,
             ticker: ticker,
             amount: amount,
             quantity: quantity,
             status: status,
-            user_id: user_id
         }
     })
 }
