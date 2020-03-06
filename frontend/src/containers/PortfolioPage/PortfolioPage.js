@@ -9,7 +9,7 @@ import NavBar from '../../components/NavBar';
 import PortfolioInfo from '../../components/PortfolioInfo';
 
 // ----API CALLS
-import { getPortfolio, getTickerInfo, addStocktoPortfolio, getUser, addToTransactions } from '../../services/apiCalls';
+import { getPortfolio, getTickerInfo, addStocktoPortfolio, getUser, addToTransactions, updateUserBalance } from '../../services/apiCalls';
 
 class PortfolioPage extends React.Component {
     constructor(props) {
@@ -150,24 +150,38 @@ class PortfolioPage extends React.Component {
             .catch( error => {
                 console.log(error)
             })
-
-        // add to db, re-render portfolio. 
-
-
     }
 
     checkBalance(balance, currentValue, quantity){
+        const { user_id, email } = this.state;
         let sumOfStock = currentValue * quantity
         let newBalance = balance - sumOfStock
 
         if(newBalance < 0){
             alert('There is not enough in your balance for this purchase')
-            return;
-        } else {
-            //update user balance
-
-            //getuser
-        }
+            return 'error';
+        } 
+        
+        updateUserBalance(newBalance, user_id)
+            .then(res => {
+                console.log('uub',res)
+                getUser(email)
+                    .then(res => {
+                        this.setState({
+                            user_id: res.data.data.id,
+                            full_name: res.data.data.full_name,
+                            email: res.data.data.email,
+                            balance: res.data.data.balance
+                        })
+                    })
+                    .catch(error => {
+                        console.log(error)
+                    })
+            })
+            .catch( error => {
+                console.log(error)
+            })
+        
     }
 
     render(){

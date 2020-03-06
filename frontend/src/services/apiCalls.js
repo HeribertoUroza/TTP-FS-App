@@ -76,6 +76,17 @@ const addToTransactions = (name, ticker, amount, quantity, status, user_id) => {
     })
 }
 
+// ----UPDATE USERS BALANCE
+const updateUserBalance = ( balance, user_id ) => {
+    return axios({
+        method: 'put',
+        url: `http://localhost:3001/user/${user_id}`,
+        data: {
+            balance: balance
+        }
+    })
+}
+
 export {
     createUser,
     getPortfolio,
@@ -83,5 +94,6 @@ export {
     getTransaction,
     addStocktoPortfolio,
     getUser,
-    addToTransactions
+    addToTransactions,
+    updateUserBalance
 }

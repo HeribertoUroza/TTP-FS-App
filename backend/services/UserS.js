@@ -24,8 +24,20 @@ const { dbAddress } = require('./dbConnection/dbAddress');
         `, { email }
     );
 
+    // ----UPDATE USERS BALENCE
+    const updateUser = ( balance, user_id ) => getDbConnection(dbAddress).oneOrNone(
+        `
+            UPDATE users
+            SET
+            balance = $[balance]
+            WHERE users.id = $[user_id]
+            RETURNING id, balance
+        `, { balance, user_id }
+    );
+
 
 module.exports = {
     postReqUser,
-    getUser
+    getUser,
+    updateUser
 }

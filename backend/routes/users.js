@@ -40,12 +40,32 @@ const getUser = ( request, response ) => {
         })
 }
 
+// ----UPDATE USERS BALENCE
+const updateUser =  ( request, response ) => {
+    const { user_id } = request.params;
+    const { balance } = request.body;
+
+    UserService.updateUser( balance, user_id )
+        .then( data => {
+            response.status(200).json({
+                message: 'Success',
+                data
+            })
+        })
+        .catch( error => {
+            response.status(400).json({
+                message: error.toString()
+            })
+        });
+};
+
 // ----USER ROUTER
 const getUserRouter = _=> {
     const UserRouter = express.Router();
 
     UserRouter.post('/', createUser );
     UserRouter.get('/:email', getUser);
+    UserRouter.put('/:user_id', updateUser);
 
     return UserRouter;
 }
