@@ -123,8 +123,10 @@ class PortfolioPage extends React.Component {
         
         let currentValue = realTimePrice ? realTimePrice : latestPrice
 
-        this.checkBalance(balance, currentValue, quantity)
+        let checkB = this.checkBalance(balance, currentValue, quantity)
 
+        if(checkB === 'error') return;
+        
         addStocktoPortfolio(companyName, search_ticker, currentValue, quantity, user_id )
             .then( res => {
                 addToTransactions(companyName, search_ticker, currentValue, quantity, 'PURCHASED', user_id)
@@ -164,7 +166,6 @@ class PortfolioPage extends React.Component {
         
         updateUserBalance(newBalance, user_id)
             .then(res => {
-                console.log('uub',res)
                 getUser(email)
                     .then(res => {
                         this.setState({
